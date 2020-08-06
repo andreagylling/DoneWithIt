@@ -1,12 +1,23 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import colors from "../config/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function ViewImageScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.closeIcon}></View>
-      <View style={styles.deleteIcon}></View>
+      <MaterialCommunityIcons
+        name="close-circle-outline"
+        size={30}
+        color={colors.eggshell}
+        style={styles.closeIcon}
+      />
+      <MaterialCommunityIcons
+        name="delete-outline"
+        size={30}
+        color={colors.eggshell}
+        style={styles.deleteIcon}
+      />
       <Image
         resizeMode="contain"
         style={styles.image}
@@ -17,28 +28,23 @@ export default function ViewImageScreen() {
 }
 
 const styles = StyleSheet.create({
-  closeIcon: {
-    width: 50,
-    height: 50,
-    backgroundColor: colors.lilac,
-    position: "absolute",
-    top: 40,
-    left: 30,
-  },
   container: {
     backgroundColor: colors.smoke,
     flex: 1,
   },
-  deleteIcon: {
-    width: 50,
-    height: 50,
-    backgroundColor: colors.pistachio,
+  closeIcon: {
     position: "absolute",
-    top: 40,
-    right: 30,
+    top: 20,
+    left: 20,
+  },
+  deleteIcon: {
+    position: "absolute",
+    top: 20,
+    right: 20,
   },
   image: {
     height: "100%",
     width: "100%",
+    marginVertical: 10,
   },
 });
