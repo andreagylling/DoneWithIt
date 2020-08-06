@@ -13,6 +13,7 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 const categories = [
   {
@@ -38,7 +39,8 @@ export default function App() {
     // <MessagesScreen />
     // <AccountScreen />
     // <ListingsScreen />
-    <LoginScreen />
+    // <LoginScreen />
+    <RegisterScreen />
 
     // <Screen>
     //   {/* <AppTextInput placeholder="Username" icon="email" /> */}
