@@ -7,7 +7,7 @@ import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
+  name: Yup.string().required().min(1).label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(8).label("Password"),
 });

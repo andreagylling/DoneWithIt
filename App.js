@@ -14,24 +14,9 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
-
-const categories = [
-  {
-    label: "Furniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Home Decor",
-    value: 3,
-  },
-];
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
   return (
     // <WelcomeScreen />
     // <ViewImageScreen />
@@ -40,19 +25,7 @@ export default function App() {
     // <AccountScreen />
     // <ListingsScreen />
     // <LoginScreen />
-    <RegisterScreen />
-
-    // <Screen>
-    //   {/* <AppTextInput placeholder="Username" icon="email" /> */}
-    //   {/* <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} /> */}
-    //   <AppPicker
-    //     selectedItem={category}
-    //     onSelectItem={(item) => setCategory(item)}
-    //     items={categories}
-    //     icon="apps"
-    //     placeholder="Category"
-    //   />
-    //   <AppTextInput icon="email" placeholder="Email" />
-    // </Screen>
+    // <RegisterScreen />
+    <ListingEditScreen />
   );
 }
