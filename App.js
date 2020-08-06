@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import Card from "./app/components/Card";
@@ -10,6 +10,7 @@ import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   return (
@@ -18,19 +19,9 @@ export default function App() {
     // <ListingDetailsScreen />
     // <MessagesScreen />
     // <AccountScreen />
-    <ListingsScreen />
-    // <View
-    //   style={{
-    //     backgroundColor: "#f8f4f4",
-    //     padding: 20,
-    //     paddingTop: 100,
-    //   }}
-    // >
-    //   <Card
-    //     title="Yellow jacket for sale"
-    //     subtitle="$100"
-    //     image={require("./app/assets/yellowjacket.jpg")}
-    //   />
-    // </View>
+    // <ListingsScreen />
+    <Screen>
+      <AppTextInput placeholder="Username" icon="email" />
+    </Screen>
   );
 }
