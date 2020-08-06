@@ -16,12 +16,11 @@ export default function AppButton({ onPress, title, color = "eggshell" }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.eggshell,
     borderRadius: 30,
-    width: "90%",
+    width: "100%",
     height: 60,
     justifyContent: "center",
-    marginBottom: 10,
+    marginVertical: 10,
   },
   text: {
     color: colors.smoke,

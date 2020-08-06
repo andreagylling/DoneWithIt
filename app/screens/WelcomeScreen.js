@@ -17,12 +17,14 @@ export default function WelcomeScreen() {
         />
         <AppText style={styles.text}>Sell What You Don't Need</AppText>
       </View>
-      <AppButton title="Sign In" onPress={() => console.log("sign in")} />
-      <AppButton
-        title="Create Account"
-        onPress={() => console.log("create account")}
-        color="pistachio"
-      />
+      <View style={styles.buttonContainer}>
+        <AppButton title="Sign In" onPress={() => console.log("sign in")} />
+        <AppButton
+          title="Create Account"
+          onPress={() => console.log("create account")}
+          color="pistachio"
+        />
+      </View>
     </ImageBackground>
   );
 }
@@ -43,6 +45,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
+    padding: 10,
+  },
+  buttonContainer: {
+    width: "100%",
     padding: 10,
   },
 });
