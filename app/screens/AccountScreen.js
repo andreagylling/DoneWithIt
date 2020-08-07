@@ -12,6 +12,7 @@ const menuItems = [
       name: "format-list-bulleted",
       backgroundColor: colors.flame,
     },
+    targetScreen: "Feed",
   },
   {
     title: "My Messages",
@@ -19,10 +20,11 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.pistachio,
     },
+    targetScreen: "Messages",
   },
 ];
 
-export default function AccountScreen() {
+export default function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -39,7 +41,7 @@ export default function AccountScreen() {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              onPress={() => console.log(item.title + " pressed")}
+              onPress={() => navigation.navigate(item.targetScreen)}
               IconComponent={
                 <Icon
                   name={item.icon.name}
