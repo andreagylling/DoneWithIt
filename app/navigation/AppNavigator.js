@@ -7,12 +7,13 @@ import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./NewListingButton";
 import { ListingEditScreen } from "../screens";
 import colors from "../config/colors";
+import routes from "./routes";
 
 const Tab = createBottomTabNavigator();
 
 export default AppNavigator = () => (
   <Tab.Navigator
-    initialRouteName="Feed"
+    initialRouteName={routes.FEED}
     tabBarOptions={{
       activeTintColor: colors.lilac,
       inactiveTintColor: colors.midtone,
@@ -28,7 +29,7 @@ export default AppNavigator = () => (
     }}
   >
     <Tab.Screen
-      name="Feed"
+      name={routes.FEED}
       component={FeedNavigator}
       options={{
         tabBarIcon: ({ size, color }) => (
@@ -37,12 +38,12 @@ export default AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="ListingEdit"
+      name={routes.LISTING_EDIT}
       component={ListingEditScreen}
       options={({ navigation, route }) => ({
         tabBarButton: () => (
           <NewListingButton
-            onPress={() => navigation.navigate("ListingEdit")}
+            onPress={() => navigation.navigate(routes.LISTING_EDIT)}
           />
         ),
         tabBarIcon: ({ size, color }) => (
@@ -55,7 +56,7 @@ export default AppNavigator = () => (
       })}
     />
     <Tab.Screen
-      name="Account"
+      name={routes.ACCOUNT}
       component={AccountNavigator}
       options={{
         tabBarIcon: ({ size, color }) => (
