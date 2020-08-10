@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import colors from "../config/colors";
 
-export default function AppButton({ onPress, title, color = "eggshell" }) {
+export default function AppButton({ onPress, title, color = "white" }) {
   return (
     <TouchableOpacity
       onPress={onPress}
