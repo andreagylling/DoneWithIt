@@ -7,20 +7,15 @@ export default function ErrorMessage({ error, visible }) {
   if (!visible || !error) return null;
 
   return (
-    <View style={styles.container}>
+    <View>
       <AppText style={styles.error}>{error}</AppText>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.flame,
-    padding: 10,
-    borderRadius: 20,
-  },
   error: {
-    color: colors.white,
+    color: colors.flame,
     paddingLeft: 10,
   },
 });
