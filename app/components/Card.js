@@ -1,14 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-export default function Card({ title, subtitle, imageUrl, onPress }) {
+export default function Card({
+  title,
+  subtitle,
+  imageUrl,
+  onPress,
+  thumbnailUrl,
+}) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.cardContainer}>
-        <Image style={styles.image} source={{ uri: imageUrl }} />
+        <Image
+          style={styles.image}
+          tint="light"
+          preview={{ uri: thumbnailUrl }}
+          uri={imageUrl}
+        />
         <View style={styles.detailContainer}>
           <AppText numberOfLines={1} style={styles.title}>
             {title}
