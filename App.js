@@ -1,13 +1,16 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-
 import { AuthNavigator, AppNavigator } from "./app/navigation";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      {/* <AuthNavigator /> */}
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer>
+        {/* <AuthNavigator /> */}
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   );
 }

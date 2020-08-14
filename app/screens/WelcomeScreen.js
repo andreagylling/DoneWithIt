@@ -22,11 +22,12 @@ export default function WelcomeScreen({ navigation }) {
         <AppButton
           title="Sign In"
           onPress={() => navigation.navigate(routes.LOGIN)}
+          textColor="white"
         />
         <AppButton
           title="Create Account"
           onPress={() => navigation.navigate(routes.REGISTER)}
-          color="pistachio"
+          color="white"
         />
       </View>
     </ImageBackground>
