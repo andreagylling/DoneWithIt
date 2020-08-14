@@ -13,6 +13,8 @@ import colors from "../config/colors";
 import usersApi from "../api/users";
 import authApi from "../api/auth";
 import useAuth from "../hooks/useAuth";
+import useApi from "../hooks/useApi";
+import AppActivityIndicator from "../components/AppActivityIndicator";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -21,11 +23,13 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function RegisterScreen() {
+  const registerApi = useApi(usersApi.register);
+  const loginApi = useApi(authApi.login);
   const [error, setError] = useState(null);
   const { logIn } = useAuth();
 
   const handleSubmit = async (userInfo) => {
-    const result = await usersApi.register(userInfo);
+    const result = await registerApi.request(userInfo);
 
     if (!result.ok) {
       if (result.data) setError(result.data.error);
@@ -36,7 +40,7 @@ export default function RegisterScreen() {
       return;
     }
 
-    const { data: authToken } = await authApi.login(
+    const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
     );
@@ -44,47 +48,50 @@ export default function RegisterScreen() {
   };
 
   return (
-    <Screen style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/logo-square-white.png")}
-      />
-      <AppForm
-        initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={(values) => handleSubmit(values)}
-        validationSchema={validationSchema}
-      >
-        {error && <ErrorMessage error={error} visible={error} />}
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="account"
-          keyboardType="default"
-          name="name"
-          placeholder="Name"
-          textContentType="name"
+    <>
+      <AppActivityIndicator visible={registerApi.loading || loginApi.loading} />
+      <Screen style={styles.container}>
+        <Image
+          style={styles.logo}
+          source={require("../assets/logo-square-white.png")}
         />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="email"
-          keyboardType="email-address"
-          name="email"
-          placeholder="Email"
-          textContentType="emailAddress"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="lock"
-          name="password"
-          placeholder="Password"
-          secureTextEntry
-          textContentType="password"
-        />
-        <SubmitButton title="Register" />
-      </AppForm>
-    </Screen>
+        <AppForm
+          initialValues={{ name: "", email: "", password: "" }}
+          onSubmit={(values) => handleSubmit(values)}
+          validationSchema={validationSchema}
+        >
+          {error && <ErrorMessage error={error} visible={error} />}
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="account"
+            keyboardType="default"
+            name="name"
+            placeholder="Name"
+            textContentType="name"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="email"
+            keyboardType="email-address"
+            name="email"
+            placeholder="Email"
+            textContentType="emailAddress"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="lock"
+            name="password"
+            placeholder="Password"
+            secureTextEntry
+            textContentType="password"
+          />
+          <SubmitButton title="Register" />
+        </AppForm>
+      </Screen>
+    </>
   );
 }
 
