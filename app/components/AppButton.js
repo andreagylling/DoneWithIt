@@ -23,12 +23,14 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 30,
     width: "100%",
-    height: 60,
+    height: 50,
     justifyContent: "center",
     marginVertical: 10,
   },
   text: {
     fontSize: 20,
+    fontWeight: "600",
+    textTransform: "uppercase",
     alignSelf: "center",
   },
 });
