@@ -88,7 +88,7 @@ export default function RegisterScreen() {
             secureTextEntry
             textContentType="password"
           />
-          <SubmitButton title="Register" />
+          <SubmitButton title="Register" color="mossgreen" textColor="white" />
         </AppForm>
       </Screen>
     </>

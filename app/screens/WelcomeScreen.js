@@ -28,6 +28,7 @@ export default function WelcomeScreen({ navigation }) {
           title="Create Account"
           onPress={() => navigation.navigate(routes.REGISTER)}
           color="white"
+          textColor="pistachio"
         />
       </View>
     </ImageBackground>

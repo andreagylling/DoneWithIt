@@ -2,8 +2,9 @@ import React from "react";
 import { Alert, StyleSheet, Keyboard, View } from "react-native";
 import { Notifications } from "expo";
 import * as Yup from "yup";
-
-import { AppForm, AppFormField, SubmitButton } from "./index";
+import AppForm from "./AppForm";
+import AppFormField from "./AppFormField";
+import SubmitButton from "./SubmitButton";
 import messagesApi from "../../api/messages";
 
 const validationSchema = Yup.object().shape({
@@ -37,7 +38,7 @@ export default function ContactSellerForm({ listing }) {
         validationSchema={validationSchema}
       >
         <AppFormField name="message" placeholder="Message" />
-        <SubmitButton title="Contact seller" color="lilac" />
+        <SubmitButton title="Contact seller" color="lilac" textColor="white" />
       </AppForm>
     </View>
   );

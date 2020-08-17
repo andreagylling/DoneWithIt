@@ -62,7 +62,7 @@ export default function LoginScreen() {
           secureTextEntry
           textContentType="password"
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="Login" color="plum" textColor="white" />
       </AppForm>
     </Screen>
   );

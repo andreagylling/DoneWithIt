@@ -139,7 +139,7 @@ export default function ListingEditScreen() {
           autoCorrect={true}
           numberOfLines={3}
         />
-        <SubmitButton title="Post" color="pistachio" />
+        <SubmitButton title="Post" color="pistachio" textColor="white" />
       </AppForm>
     </Screen>
   );

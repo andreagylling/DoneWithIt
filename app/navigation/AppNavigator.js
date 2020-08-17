@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 
 export default AppNavigator = () => {
   useNotifications(() => {
-    notification.navigate(routes.MESSAGES);
+    notification.navigate(routes.ACCOUNT);
   });
 
   return (
